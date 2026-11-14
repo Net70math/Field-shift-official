@@ -60,7 +60,7 @@ All project modules were merged and deployed through a centralized repository wo
 | **Natnael Walelign⚡️** | [@Net70math](https://github.com/Net70math) | Project Lead & Lead Developer |
 | **Fiker Derese☠️** | [@fikir-dev](https://github.com/fikir-dev) | Frontend Developer & UI/UX ☠️|
 | **Feven Dereje** | [@Feven-tec](https://github.com/Feven-tec) | Frontend Developer & UI/UX |
-| **Eden Sewareg** | [@ESA2008](https://github.com/ESA2008) | Frontend Developer & UI/UX |
+| **Eden Sewareg💻** | [@ESA2008](https://github.com/ESA2008) | Frontend Developer & UI/UX |
 | **Michael Melkamu😎** | [@arsmikister](https://github.com/arsmikister) | Agricultural Planner & Developer |
 | **Elias Teku✨** | [@eliasteku](https://github.com/eliasteku) | Backend Developer & API Integration |
 
