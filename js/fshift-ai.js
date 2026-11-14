@@ -441,3 +441,22 @@ Your role:
         });
     });
 });
+// Secure API Key Storage Engine (Keeps keys out of GitHub)
+let GEMINI_API_KEY = localStorage.getItem("FSHIFT_GEMINI_KEY");
+
+if (!GEMINI_API_KEY) {
+    GEMINI_API_KEY = prompt("🔒 Enter your Gemini API Key to activate Fshift AI:");
+
+    if (GEMINI_API_KEY) {
+        localStorage.setItem("FSHIFT_GEMINI_KEY", GEMINI_API_KEY);
+        console.log("Gemini API Key securely stored in local browser memory.");
+    } else {
+        console.warn("Fshift AI is offline (No API Key provided).");
+    }
+}
+
+// Function to reset the key if you ever need to change it
+function resetGeminiKey() {
+    localStorage.removeItem("FSHIFT_GEMINI_KEY");
+    location.reload();
+}
