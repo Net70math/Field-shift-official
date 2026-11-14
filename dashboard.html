@@ -10,7 +10,6 @@
 
 <body class="app-page">
 
-
   <!-- Mobile top navigation -->
   <header class="mobile-topbar">
     <a class="brand" href="index.html">◎ FIELD SHIFT</a>
@@ -46,10 +45,6 @@
     </div>
   </aside>
 
-
-  <script src="js/navigation.js"></script>
-
-
   <main class="app-main">
     <header class="app-header">
       <div>
@@ -78,7 +73,8 @@
             <span class="metric-label">Air temperature</span>
             <span class="metric-icon">🌡️</span>
           </div>
-          <div class="metric-value" id="temperatureValue">28°C</div>
+          <!-- ID updated to match the NASA script -->
+          <div class="metric-value" id="dash-temp">28°C</div>
           <div class="metric-foot" id="temperatureNote">Illustrative current estimate</div>
         </article>
 
@@ -87,7 +83,8 @@
             <span class="metric-label">Rainfall</span>
             <span class="metric-icon">🌧️</span>
           </div>
-          <div class="metric-value" id="rainfallValue">42 mm</div>
+          <!-- ID updated to match the NASA script -->
+          <div class="metric-value" id="dash-precip">42 mm</div>
           <div class="metric-foot" id="rainfallNote">Illustrative rainfall estimate</div>
         </article>
 
@@ -146,6 +143,7 @@
           connected to this prototype yet.</p>
       </div>
     </section>
+
     <nav class="step-nav" aria-label="Rotation steps">
       <button class="step-button active" data-step="planner" aria-current="step"><span>01</span> Planner</button>
       <button class="step-button" data-step="simulator" disabled><span>02</span> Simulator</button>
@@ -153,6 +151,7 @@
     </nav>
 
     <div id="app-alert" class="app-alert" role="status" hidden></div>
+
     <section id="planner-view" class="step-view">
       <div class="section-heading">
         <div>
@@ -315,11 +314,51 @@
 
     <footer class="app-footer">FIELD SHIFT · THE ORGINALS · PROTOTYPE</footer>
   </main>
+
   <script src="js/navigation.js"></script>
   <script src="js/metrics.js"></script>
   <script src="js/planner.js"></script>
   <script src="js/storage.js"></script>
-  <script src="js/storage.js"></script>
+
+  <!-- NASA Live Data Engine -->
+  <script>
+    async function loadDashboardData() {
+      const tempEl = document.getElementById('dash-temp');
+      const precipEl = document.getElementById('dash-precip');
+
+      try {
+        // Offset dates to account for NASA's 3-day satellite processing delay
+        const today = new Date();
+        const endDate = new Date(today.getTime() - (3 * 24 * 60 * 60 * 1000));
+        const startDate = new Date(today.getTime() - (10 * 24 * 60 * 60 * 1000));
+
+        const end = endDate.toISOString().slice(0, 10).replace(/-/g, '');
+        const start = startDate.toISOString().slice(0, 10).replace(/-/g, '');
+
+        // Default coordinates set to Adama, Oromia, Ethiopia
+        const lat = 8.54;
+        const lng = 39.27;
+
+        const url = `https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR,T2M&community=AG&longitude=${lng}&latitude=${lat}&start=${start}&end=${end}&format=JSON`;
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        const precipData = Object.values(data.properties.parameter.PRECTOTCORR);
+        const tempData = Object.values(data.properties.parameter.T2M);
+
+        const totalPrecip = precipData.reduce((a, b) => a + (b > 0 ? b : 0), 0).toFixed(1);
+        const avgTemp = (tempData.reduce((a, b) => a + b, 0) / tempData.length).toFixed(1);
+
+        if (precipEl) precipEl.textContent = `${totalPrecip} mm`;
+        if (tempEl) tempEl.textContent = `${avgTemp} °C`;
+      } catch (error) {
+        console.error("Dashboard NASA API Error:", error);
+      }
+    }
+
+    window.onload = loadDashboardData;
+  </script>
 </body>
 
 </html>
