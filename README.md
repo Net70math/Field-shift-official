@@ -37,6 +37,35 @@
 ## 🚀 Getting Started & Judge Testing Guide
 
 ### 1. Clone the Repository
-```bash
-git clone [https://github.com/Net70math/Field-shift-official.git](https://github.com/Net70math/Field-shift-official.git)
-cd Field-shift-official
+### 2. Launch with a Local Server
+Because Field Shift executes live asynchronous `fetch()` requests to NASA servers and renders Esri map tiles, run the project through a local HTTP server rather than opening the HTML files via `file://`:
+* **VS Code:** Right-click `index.html` or `dashboard.html` and select **Open with Live Server**.
+* **Python CLI:** Run `python3 -m http.server 5500` and open `http://localhost:5500/dashboard.html`.
+
+### 3. Activating Fshift AI (Zero-Leak API Security)
+To protect credentials in a public repository, no API keys are hardcoded in the source files:
+1. Navigate to the **Smart Analysis** page.
+2. A browser prompt will ask for a **Google Gemini API Key**.
+3. Paste your key into the prompt. It is saved exclusively in your local browser memory (`localStorage`) under `FSHIFT_GEMINI_KEY` and is never transmitted to GitHub.
+4. To swap or clear the key at any time, run `resetGeminiKey()` in the browser console.
+
+---
+
+## 👥 Team: The Originals
+
+All project modules were merged and deployed through a centralized repository workflow by:
+
+| Team Member | GitHub Handle | Role & Contributions |
+| :--- | :--- | :--- |
+| **Natnael Walelign** | [@Net70math](https://github.com/Net70math) | Project Lead & Lead Developer |
+| **Fikir Derese** | [@fikir-dev](https://github.com/fikir-dev) | Frontend Developer & UI/UX |
+| **Feven Dereje** | [@Feven-tec](https://github.com/Feven-tec) | Frontend Developer & UI/UX |
+| **Eden Sewareg** | [@ESA2008](https://github.com/ESA2008) | Frontend Developer & UI/UX |
+| **Michael Melkamu** | [@arsmikister](https://github.com/arsmikister) | Agricultural Planner & Developer |
+| **Elias Teku** | [@eliasteku](https://github.com/eliasteku) | Backend Developer & API Integration |
+
+---
+
+## 📄 Data Transparency & Attribution
+* **Satellite Basemaps:** Imagery © Esri, Maxar, Earthstar Geographics, and the GIS User Community. Street data © OpenStreetMap contributors.
+* **Climate Telemetry:** Meteorological data obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program.
