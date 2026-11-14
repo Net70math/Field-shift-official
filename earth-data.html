@@ -64,33 +64,44 @@
       <div>
         <div class="eyebrow">OBSERVE · SELECT · ANALYZE</div>
         <h2>Every location tells a story.</h2>
-        <p>Choose an area using the satellite map. The current prototype provides geographic navigation and coordinates,
-          with scientific data layers planned for future integration.</p>
+        <p>Explore country borders and names on the satellite map. Select a country or point to inspect its location and
+          coordinates.</p>
       </div>
       <div class="earth-symbol">◎</div>
     </section>
 
     <section class="map-toolbar">
       <div><strong>Satellite basemap</strong>
-        <p>Search a country, select a point, or use your device location.</p>
+        <p>Click a country to inspect it, or search for a place, select a point, or use your device location.</p>
       </div>
       <div class="toolbar-actions">
-        <input id="countrySearch" class="search-input" type="search" placeholder="Search country..."
-          aria-label="Search country">
-        <button class="button button-outline" id="searchCountry">Find</button>
+        <div class="search-control">
+          <input id="countrySearch" class="search-input" type="search" placeholder="Search a place (e.g. Addis Ababa)"
+            aria-label="Search locations" aria-controls="locationSuggestions" aria-describedby="searchStatus"
+            aria-expanded="false" autocomplete="off">
+          <button class="button button-outline" id="searchCountry" type="button">Find</button>
+          <div id="locationSuggestions" class="location-suggestions" role="listbox" aria-label="Location suggestions"
+            hidden></div>
+        </div>
         <button class="button button-primary" id="locateMe">⌖ My location</button>
+        <p id="searchStatus" class="map-control-status" role="status" aria-live="polite"></p>
+        <p id="locationStatus" class="map-control-status" role="status" aria-live="polite"></p>
+        <p id="countryLayerStatus" class="map-control-status" role="status" aria-live="polite">Loading country
+          boundaries...</p>
       </div>
     </section>
+    <p class="geocoding-attribution">Location search: <a href="https://www.openstreetmap.org/copyright" target="_blank"
+        rel="noopener noreferrer">© OpenStreetMap contributors</a> (Nominatim)</p>
 
     <div class="map-layout">
       <section class="map-frame">
-        <div id="fieldMap"></div>
+        <div id="fieldMap" data-country-borders="true"></div>
       </section>
       <aside class="location-panel">
         <div class="eyebrow">LOCATION INSPECTOR</div>
         <div class="location-pin">⌖</div>
         <h2 id="placeName">Ethiopia</h2>
-        <p class="muted">Selected geographic position</p>
+        <p class="muted" id="placeDetails">Selected geographic position</p>
         <div class="coordinate-row"><span>LATITUDE</span><strong id="latitude">9.0300°</strong></div>
         <div class="coordinate-row"><span>LONGITUDE</span><strong id="longitude">38.7400°</strong></div>
         <button id="copyCoords" class="button button-primary full-width">Copy coordinates</button>
@@ -103,7 +114,8 @@
       </aside>
     </div>
 
-    <footer class="app-footer">Basemap imagery is not equivalent to a live scientific data product.</footer>
+    <footer class="app-footer">Basemap imagery is not a scientific data product. Country boundaries are generalized
+      Natural Earth data.</footer>
     <div class="result-card" style="border: 1px solid var(--green, #b9f66a); padding: 15px; border-radius: 8px;">
       <h4 style="color: var(--green, #b9f66a); margin-bottom: 10px;">🛰️ Live NASA Satellite Data</h4>
       <p class="muted" id="nasa-status">Click anywhere on the Explore Map to fetch live climate data...</p>

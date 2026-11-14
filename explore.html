@@ -59,26 +59,37 @@
 
     <section class="map-toolbar">
       <div><strong>Explore the landscape</strong>
-        <p>Search for a country or click anywhere on the map.</p>
+        <p>Explore country borders and names. Click a country, search for a place, or select a point.</p>
       </div>
       <div class="toolbar-actions">
-        <input id="countrySearch" class="search-input" type="search" placeholder="Find a country..."
-          aria-label="Search country">
-        <button class="button button-outline" id="searchCountry">Search</button>
+        <div class="search-control">
+          <input id="countrySearch" class="search-input" type="search" placeholder="Search a place (e.g. Addis Ababa)"
+            aria-label="Search locations" aria-controls="locationSuggestions" aria-describedby="searchStatus"
+            aria-expanded="false" autocomplete="off">
+          <button class="button button-outline" id="searchCountry" type="button">Search</button>
+          <div id="locationSuggestions" class="location-suggestions" role="listbox" aria-label="Location suggestions"
+            hidden></div>
+        </div>
         <button class="button button-primary" id="locateMe">⌖ My location</button>
+        <p id="searchStatus" class="map-control-status" role="status" aria-live="polite"></p>
+        <p id="locationStatus" class="map-control-status" role="status" aria-live="polite"></p>
+        <p id="countryLayerStatus" class="map-control-status" role="status" aria-live="polite">Loading country
+          boundaries...</p>
       </div>
     </section>
+    <p class="geocoding-attribution">Location search: <a href="https://www.openstreetmap.org/copyright" target="_blank"
+        rel="noopener noreferrer">© OpenStreetMap contributors</a> (Nominatim)</p>
 
     <div class="map-layout">
       <section class="map-frame">
-        <div id="fieldMap"></div>
+        <div id="fieldMap" data-country-borders="true"></div>
       </section>
 
       <aside class="location-panel">
         <div class="eyebrow">LOCATION INSPECTOR</div>
         <div class="location-pin">⌖</div>
         <h2 id="placeName">Ethiopia</h2>
-        <p class="muted">Selected map position</p>
+        <p class="muted" id="placeDetails">Selected map position</p>
         <div class="coordinate-row"><span>LATITUDE</span><strong id="latitude">9.0300°</strong></div>
         <div class="coordinate-row"><span>LONGITUDE</span><strong id="longitude">38.7400°</strong></div>
         <button id="copyCoords" class="button button-primary full-width">Copy coordinates</button>
@@ -110,7 +121,8 @@
     </aside>
 
     </div>
-    <footer class="app-footer">Imagery © Esri and its imagery contributors. Attribution is shown on the map.</footer>
+    <footer class="app-footer">Imagery © Esri and its imagery contributors. Country boundaries are generalized
+      Natural Earth data.</footer>
   </main>
   <script src="js/navigation.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
