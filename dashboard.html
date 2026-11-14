@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Field Shift</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="app-page">
+
+
+  <!-- Mobile top navigation -->
+  <header class="mobile-topbar">
+    <a class="brand" href="index.html">◎ FIELD SHIFT</a>
+
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu"
+      aria-controls="appSidebar" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Overlay closes the sidebar on mobile -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main sidebar -->
+  <aside class="sidebar" id="appSidebar">
+    <a class="brand sidebar-brand" href="index.html">◎ FIELD SHIFT</a>
+
+    <nav data-nav aria-label="Application navigation">
+      <a href="dashboard.html" class="active">▦ <span>Dashboard</span></a>
+      <a href="smart-analysis.html">⚛ <span>Smart Analysis</span></a>
+      <a href="agriculture.html">✳ <span>Agriculture</span></a>
+      <a href="explore.html">◎ <span>Explore Map</span></a>
+      <a href="earth-data.html">⌁ <span>Earth Data</span></a>
+      <a href="methodology.html">↖ <span>Methodology</span></a>
+      <a href="index.html">↖ <span>Landing page</span></a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <span class="status-dot"></span>
+      <span>Field Shift Prototype</span>
+    </div>
+  </aside>
+
+
+  <script src="js/navigation.js"></script>
+
+
+  <main class="app-main">
+    <header class="app-header">
+      <div>
+        <div class="eyebrow">FIELD SHIFT / WORKSPACE</div>
+        <h1>Dashboard</h1>
+        <p class="muted">Your starting point for exploring Earth.</p>
+      </div>
+      <span class="status-pill"><span class="live-dot"></span> Demo workspace</span>
+    </header>
+
+    <section class="welcome-banner">
+      <div class="welcome-copy">
+        <div class="eyebrow">EARTH INTELLIGENCE FOR AGRICULTURE</div>
+        <h2>See the bigger picture.<br><span>Explore your planet.</span></h2>
+        <p>Start with a location, inspect the landscape, and explore the environmental data features planned for Field
+          Shift.</p>
+        <a class="button button-primary" href="earth-data.html">Open Earth Explorer ↗</a>
+      </div>
+      <div class="banner-earth">🌍</div>
+    </section>
+
+    <section class="farm-health">
+      <div class="metrics-grid">
+        <article class="metric-card">
+          <div class="metric-top">
+            <span class="metric-label">Air temperature</span>
+            <span class="metric-icon">🌡️</span>
+          </div>
+          <div class="metric-value" id="temperatureValue">28°C</div>
+          <div class="metric-foot" id="temperatureNote">Illustrative current estimate</div>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-top">
+            <span class="metric-label">Rainfall</span>
+            <span class="metric-icon">🌧️</span>
+          </div>
+          <div class="metric-value" id="rainfallValue">42 mm</div>
+          <div class="metric-foot" id="rainfallNote">Illustrative rainfall estimate</div>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-top">
+            <span class="metric-label">Soil moisture</span>
+            <span class="metric-icon">💧</span>
+          </div>
+          <div class="metric-value" id="moistureValue">38%</div>
+          <div class="metric-foot" id="moistureNote">Illustrative soil moisture</div>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-top">
+            <span class="metric-label">Vegetation status</span>
+            <span class="metric-icon">🌱</span>
+          </div>
+          <div class="metric-value" id="vegetationValue">Healthy</div>
+          <div class="metric-foot" id="vegetationNote">Illustrative vegetation status</div>
+        </article>
+      </div>
+    </section>
+
+    <div class="section-heading">
+      <div>
+        <h2>Explore your workspace</h2>
+        <p>Choose a tool to get started.</p>
+      </div>
+    </div>
+
+    <section class="dashboard-grid">
+      <a class="dashboard-card" href="explore.html">
+        <div class="card-top"><span class="feature-icon">◎</span><span class="card-arrow">↗</span></div>
+        <h3>Explore Map</h3>
+        <p>Navigate satellite imagery, select a place, and inspect its coordinates.</p>
+        <span class="mini-link">Open map →</span>
+      </a>
+      <a class="dashboard-card" href="earth-data.html">
+        <div class="card-top"><span class="feature-icon">⌁</span><span class="card-arrow">↗</span></div>
+        <h3>Earth Data Explorer</h3>
+        <p>View the interactive map and inspect the selected geographic location.</p>
+        <span class="mini-link">Explore Earth →</span>
+      </a>
+      <a class="dashboard-card" href="agriculture.html">
+        <div class="card-top"><span class="feature-icon">✳</span><span class="card-arrow">↗</span></div>
+        <h3>Agriculture Intelligence</h3>
+        <p>Discover the indicators that could help explain changing farm conditions.</p>
+        <span class="mini-link">View agriculture →</span>
+      </a>
+    </section>
+
+    <section class="data-note">
+      <span>ⓘ</span>
+      <div><strong>Data transparency</strong>
+        <p>The map provides satellite basemap imagery. Verified rainfall, vegetation, and drought measurements are not
+          connected to this prototype yet.</p>
+      </div>
+    </section>
+    <nav class="step-nav" aria-label="Rotation steps">
+      <button class="step-button active" data-step="planner" aria-current="step"><span>01</span> Planner</button>
+      <button class="step-button" data-step="simulator" disabled><span>02</span> Simulator</button>
+      <button class="step-button" data-step="compare" disabled><span>03</span> Compare strategies</button>
+    </nav>
+
+    <div id="app-alert" class="app-alert" role="status" hidden></div>
+    <section id="planner-view" class="step-view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">STEP 01 / FIELD PROFILE</p>
+          <h2>Rotation planner</h2>
+        </div>
+        <p>Tell us about your field. Fields marked <span class="required">*</span> are required. Choose “Unknown” if
+          you're unsure.</p>
+      </div>
+      <form id="planner-form" novalidate>
+        <fieldset class="panel">
+          <legend>Farm details</legend>
+          <div class="form-grid three">
+            <div class="field"><label for="farm-name">Farm name</label><input id="farm-name" name="farmName"
+                autocomplete="organization" placeholder="e.g. Demo farm"></div>
+            <div class="field"><label for="farm-location">Location</label><input id="farm-location" name="location"
+                placeholder="e.g. Adama"></div>
+            <div class="field"><label for="farm-size">Size (hectares)</label><input id="farm-size" name="sizeHectares"
+                inputmode="decimal" placeholder="Optional"><small class="field-error" data-error="sizeHectares"></small>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="panel">
+          <legend>Crop history</legend>
+          <div class="form-grid three">
+            <div class="field"><label for="current-crop">Current crop <span class="required">*</span></label><select
+                id="current-crop" required>
+                <option value="">Choose a crop</option>
+              </select><input id="current-crop-name" class="custom-crop" hidden placeholder="Type crop name"
+                aria-label="Current crop name"><small class="field-error" data-error="currentCrop"></small></div>
+            <div class="field"><label for="previous-crop">Previous crop</label><select id="previous-crop">
+                <option value="">Unknown / not sure</option>
+              </select><input id="previous-crop-name" class="custom-crop" hidden placeholder="Type crop name"
+                aria-label="Previous crop name"><small class="field-error" data-error="previousCrop"></small></div>
+            <div class="field"><label for="earlier-crop">Crop before that</label><select id="earlier-crop">
+                <option value="">Unknown / not sure</option>
+              </select><input id="earlier-crop-name" class="custom-crop" hidden placeholder="Type crop name"
+                aria-label="Earlier crop name"><small class="field-error" data-error="earlierCrop"></small></div>
+          </div>
+          <div class="subsection">
+            <div class="subheading"><strong>Crops you'd like to grow</strong><span>Optional</span></div>
+            <div id="preferred-crops" class="chip-group"></div>
+          </div>
+          <div class="subsection">
+            <div class="subheading"><strong>Planning period</strong><span>One crop per year</span></div>
+            <div id="planning-years" class="chip-group" role="group" aria-label="Planning period">
+              <label class="choice-chip"><input type="radio" name="years" value="1"><span>1 year</span></label>
+              <label class="choice-chip selected"><input type="radio" name="years" value="2" checked><span>2
+                  years</span></label>
+              <label class="choice-chip"><input type="radio" name="years" value="3"><span>3 years</span></label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="panel">
+          <legend>Soil and water</legend>
+          <div class="form-grid two">
+            <div class="field"><label for="soil-type">Soil type <span class="required">*</span></label><select
+                id="soil-type" required>
+                <option value="">Choose soil type</option>
+                <option value="clay">Clay</option>
+                <option value="sandy">Sandy</option>
+                <option value="loamy">Loamy</option>
+                <option value="other">Other</option>
+                <option value="unknown">Unknown</option>
+              </select><small class="field-error" data-error="soilType"></small></div>
+            <div class="field"><label for="water-availability">Water availability <span
+                  class="required">*</span></label><select id="water-availability" required>
+                <option value="">Choose water availability</option>
+                <option value="rain_fed">Rain-fed</option>
+                <option value="limited_irrigation">Limited irrigation</option>
+                <option value="reliable_irrigation">Reliable irrigation</option>
+                <option value="unknown">Unknown</option>
+              </select><small class="field-error" data-error="waterAvailability"></small></div>
+            <div class="field"><label for="fertility">Soil fertility concerns</label><input id="fertility"
+                placeholder="e.g. low fertility, erosion, waterlogging"><small class="field-hint">Optional. Leave empty
+                if none are known.</small></div>
+            <div class="field"><label for="farm-notes">Notes about your farm</label><textarea id="farm-notes" rows="3"
+                placeholder="Any additional context…"></textarea></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="panel">
+          <legend>Your priorities <span class="required">*</span></legend>
+          <div class="subheading">
+            <p>Choose up to 3 priorities. Selected: <strong id="priority-count">0</strong>/3</p>
+          </div>
+          <div id="priority-options" class="priority-grid"></div>
+          <small class="field-error" data-error="priorities"></small>
+        </fieldset>
+
+        <div id="planner-error-summary" class="error-summary" tabindex="-1" hidden>Please fix the highlighted fields
+          before continuing.</div>
+        <div class="action-row">
+          <button class="button primary" type="submit">Continue to simulator <span aria-hidden="true">→</span></button>
+          <button class="button secondary" id="reset-form" type="button">Reset form</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="simulator-view" class="step-view" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">STEP 02 / BUILD SEQUENCES</p>
+          <h2>Rotation simulator</h2>
+        </div>
+        <p>Build crop sequences, then run the demonstration rules on each.</p>
+      </div>
+      <div class="notice demo-notice"><strong>Demonstration only</strong><span>Scores use simple local rules, not NASA
+          data, measured yields, or validated agronomic advice.</span></div>
+      <section id="farm-summary" class="panel summary-grid" aria-label="Farm and assumptions"></section>
+      <div id="strategy-list" class="strategy-list"></div>
+      <div class="action-row">
+        <button class="button secondary" id="back-planner">← Back to planner</button>
+        <button class="button secondary" id="add-strategy">＋ Add strategy</button>
+        <button class="button primary" id="simulate">Run simulation <span aria-hidden="true">→</span></button>
+        <button class="button primary" id="go-compare" disabled>Compare strategies</button>
+      </div>
+    </section>
+
+    <section id="compare-view" class="step-view" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">STEP 03 / REVIEW OPTIONS</p>
+          <h2>Compare strategies</h2>
+        </div>
+        <p>Review differences side by side. No strategy is declared best; the demo score only reflects the rules listed
+          below.</p>
+      </div>
+      <div class="notice demo-notice"><strong>Demonstration only</strong><span>This is not a probability, yield
+          prediction, or verified suitability assessment.</span></div>
+      <fieldset class="panel">
+        <legend>Strategies to compare</legend>
+        <div id="compare-toggles" class="chip-group"></div>
+      </fieldset>
+      <div id="comparison-container"></div>
+      <details class="panel scoring-details">
+        <summary>How the demo score is calculated</summary>
+        <ul>
+          <li><strong>Crop family alternation (up to 25 points):</strong> consecutive crops from the same family count
+            against the score.</li>
+          <li><strong>Legume included (up to 20 points):</strong> full points if at least one legume appears.</li>
+          <li><strong>Water match (up to 25 points):</strong> compares general crop water categories with stated
+            availability.</li>
+          <li><strong>Pest and disease breaks (up to 15 points):</strong> penalizes the same crop repeated
+            consecutively, including the current crop.</li>
+          <li><strong>Priority alignment (up to 15 points):</strong> share of selected priorities the simplified rules
+            can assess as addressed.</li>
+        </ul>
+        <p class="muted">Unassessable criteria are excluded. If less than half the scoring points can be assessed, the
+          score shows “Insufficient data.”</p>
+      </details>
+      <div class="action-row">
+        <button class="button secondary" id="back-simulator">← Back to simulator</button>
+        <button class="button primary" id="save-plan">Save plan locally</button>
+      </div>
+      <p id="save-message" class="success-message" role="status" hidden></p>
+    </section>
+
+    <footer class="app-footer">FIELD SHIFT · THE ORGINALS · PROTOTYPE</footer>
+  </main>
+  <script src="js/navigation.js"></script>
+  <script src="js/metrics.js"></script>
+  <script src="js/planner.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/storage.js"></script>
+</body>
+
+</html>

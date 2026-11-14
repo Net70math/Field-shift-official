@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07100f" />
+    <title>Smart Analysis & Fshift AI | Field Shift</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        .fshift-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+            margin-top: 20px;
+        }
+
+        .fshift-chat-box {
+            display: flex;
+            flex-direction: column;
+            height: 520px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: linear-gradient(145deg, #11231c, #0b1512);
+        }
+
+        .fshift-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 14px;
+        }
+
+        .fshift-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .fshift-badge span {
+            display: inline-grid;
+            place-items: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: #b9f66a18;
+            border: 1px solid #b9f66a40;
+            color: var(--green);
+            font-size: 16px;
+        }
+
+        .fshift-messages {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-right: 6px;
+        }
+
+        .fshift-msg {
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-size: 12px;
+            line-height: 1.7;
+            max-width: 92%;
+        }
+
+        .fshift-msg.ai {
+            align-self: flex-start;
+            background: #0b1712;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .fshift-msg.user {
+            align-self: flex-end;
+            background: #b9f66a18;
+            border: 1px solid var(--green);
+            color: var(--text);
+        }
+
+        .fshift-msg strong {
+            color: var(--green);
+        }
+
+        .fshift-prompts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin: 12px 0;
+        }
+
+        .fshift-chip {
+            padding: 6px 11px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: #0b1712;
+            color: var(--muted);
+            font-size: 11px;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+
+        .fshift-chip:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .fshift-input-row {
+            display: flex;
+            gap: 8px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+        }
+
+        .fshift-input-row input {
+            flex: 1;
+            padding: 10px 12px;
+            border-radius: 9px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 12px;
+            outline: none;
+        }
+
+        .fshift-input-row input:focus {
+            border-color: var(--green);
+        }
+
+        @media (max-width: 960px) {
+            .fshift-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="app-page">
+
+    <!-- Mobile top navigation -->
+    <header class="mobile-topbar">
+        <a class="brand" href="index.html">◎ FIELD SHIFT</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu"
+            aria-controls="appSidebar" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="appSidebar">
+        <a class="brand sidebar-brand" href="index.html">◎ FIELD SHIFT</a>
+        <nav data-nav aria-label="Application navigation">
+            <a href="dashboard.html">▦ <span>Dashboard</span></a>
+            <a href="smart-analysis.html" class="active">⚛ <span>Smart Analysis</span></a>
+            <a href="agriculture.html">✳ <span>Agriculture</span></a>
+            <a href="explore.html">◎ <span>Explore Map</span></a>
+            <a href="earth-data.html">⌁ <span>Earth Data</span></a>
+            <a href="methodology.html">↖ <span>Methodology</span></a>
+            <a href="index.html">↖ <span>Landing page</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+            <span class="status-dot"></span>
+            <span>Field Shift Prototype</span>
+        </div>
+    </aside>
+
+    <main class="app-main">
+        <header class="app-header">
+            <div>
+                <div class="eyebrow">⚛ DIAGNOSTICS &amp; AGRONOMIC INTELLIGENCE</div>
+                <h1>Smart Analysis</h1>
+                <p>Combine visual crop inspection with Fshift AI to evaluate field health and rotation data.</p>
+            </div>
+            <div class="status-pill"><span class="live-dot"></span>FSHIFT AI READY</div>
+        </header>
+
+        <div class="fshift-layout">
+            <!-- Left Column: Fev's Crop Scanner -->
+            <section class="panel" style="margin: 0;">
+                <div class="section-heading" style="margin-top: 0;">
+                    <div>
+                        <div class="eyebrow">COMPUTER VISION MODULE</div>
+                        <h2>Crop &amp; Leaf Scanner</h2>
+                    </div>
+                </div>
+
+                <div id="uploadDropzone" class="upload-box">
+                    <img id="imagePreview" class="image-preview" alt="Uploaded crop preview" />
+                    <div id="uploadPrompt">
+                        <div class="upload-symbol" style="margin-inline: auto;">⚛</div>
+                        <h3>Drop a crop or leaf photo</h3>
+                        <p>Upload a clear field image to run visual stress and foliar symptom checks.</p>
+                    </div>
+                    <input type="file" id="cropFileInput" class="file-input" accept="image/*" />
+                    <div class="upload-actions">
+                        <button type="button" id="chooseImageBtn" class="button button-outline">Choose image</button>
+                        <button type="button" id="runScanBtn" class="button button-primary" disabled>Run visual
+                            scan</button>
+                    </div>
+                </div>
+
+                <div id="scanResultsArea" class="scan-results" style="margin-top: 16px; min-height: auto;">
+                    <div id="scanEmptyState" class="scan-empty" style="min-height: 150px;">
+                        <div>
+                            <div class="scan-empty-icon">🌿</div>
+                            <p style="margin: 0;">No image scanned yet. Upload a leaf photo to inspect surface
+                                indicators.</p>
+                        </div>
+                    </div>
+
+                    <div id="scanActiveState" hidden>
+                        <div id="scanStatusText" class="scan-status">Analyzing leaf surface patterns...</div>
+                        <div class="progress-track">
+                            <div id="scanProgressBar" class="progress-bar"></div>
+                        </div>
+                        <div id="scanOutputCards"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Fshift AI Advisor -->
+            <section class="fshift-chat-box">
+                <div class="fshift-header">
+                    <div class="fshift-badge">
+                        <span>⚛</span> Fshift AI
+                    </div>
+                    <span class="status-pill">Agronomy Engine</span>
+                </div>
+
+                <div id="fshiftMessages" class="fshift-messages" aria-live="polite">
+                    <div class="fshift-msg ai">
+                        <strong>Fshift:</strong> Hello! I am <strong>Fshift</strong>, your Field Shift agronomic
+                        assistant. I can analyze your saved Rotation Planner profile, interpret your leaf scans, or
+                        explain how NASA POWER climate metrics impact your crops. What would you like to inspect?
+                    </div>
+                </div>
+
+                <div class="fshift-prompts">
+                    <button type="button" class="fshift-chip"
+                        data-prompt="Analyze my saved farm profile and suggest a crop rotation.">📋 Analyze My Farm
+                        Profile</button>
+                    <button type="button" class="fshift-chip"
+                        data-prompt="Explain my latest crop scan results and next steps.">🌿 Interpret Leaf
+                        Scan</button>
+                    <button type="button" class="fshift-chip"
+                        data-prompt="How do NASA POWER solar and rainfall metrics affect Ethiopian cereal and legume rotations?">🛰️
+                        NASA Data &amp; Drought Advice</button>
+                </div>
+
+                <form id="fshiftForm" class="fshift-input-row">
+                    <input type="text" id="fshiftInput" placeholder="Ask Fshift about crops, soil, or scan results..."
+                        required />
+                    <button type="submit" id="fshiftSendBtn" class="button button-primary">Ask Fshift</button>
+                </form>
+            </section>
+        </div>
+
+        <footer class="app-footer">
+            FIELD SHIFT · SMART ANALYSIS &amp; FSHIFT AI · PROTOTYPE
+        </footer>
+    </main>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/fshift-ai.js"></script>
+</body>
+
+</html>

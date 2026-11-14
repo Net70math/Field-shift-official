@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agriculture Intelligence | Field Shift</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="app-page">
+
+
+  <!-- Mobile top navigation -->
+  <header class="mobile-topbar">
+    <a class="brand" href="index.html">◎ FIELD SHIFT</a>
+
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu"
+      aria-controls="appSidebar" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Overlay closes the sidebar on mobile -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main sidebar -->
+  <aside class="sidebar" id="appSidebar">
+    <a class="brand sidebar-brand" href="index.html">◎ FIELD SHIFT</a>
+
+    <nav data-nav aria-label="Application navigation">
+      <a href="dashboard.html">▦ <span>Dashboard</span></a>
+      <a href="smart-analysis.html">⚛ <span>Smart Analysis</span></a>
+      <a href="agriculture.html" class="active">✳ <span>Agriculture</span></a>
+      <a href="explore.html">◎ <span>Explore Map</span></a>
+      <a href="earth-data.html">⌁ <span>Earth Data</span></a>
+      <a href="methodology.html">↖ <span>Methodology</span></a>
+      <a href="index.html">↖ <span>Landing page</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <span class="status-dot"></span>
+      <span>Field Shift Prototype</span>
+    </div>
+  </aside>
+
+
+  <script src="js/navigation.js"></script>
+
+
+  <main class="app-main">
+    <header class="app-header">
+      <div>
+        <div class="eyebrow">WORKSPACE / AGRICULTURE</div>
+        <h1>Agriculture Intelligence</h1>
+        <p class="muted">Explore environmental indicators relevant to farming.</p>
+      </div>
+      <span class="status-pill">Preview mode</span>
+    </header>
+
+    <section class="welcome-banner agriculture-banner">
+      <div class="welcome-copy">
+        <div class="eyebrow">FROM SPACE TO SOIL</div>
+        <h2>Understand the conditions.<br><span>Explore the evidence.</span></h2>
+        <p>Discover how satellite and environmental observations can help investigate changes in agricultural
+          landscapes.</p>
+        <a href="earth-data.html" class="button button-primary">Select an area ↗</a>
+      </div>
+      <div class="banner-earth">🌱</div>
+    </section>
+
+    <div class="section-heading">
+      <div>
+        <h2>Environmental indicators</h2>
+        <p>Planned analysis features — not measured values.</p>
+      </div>
+    </div>
+
+    <section class="dashboard-grid">
+      <article class="dashboard-card indicator-card">
+        <div class="card-top"><span class="feature-icon">⌁</span><span class="layer-pending">Planned</span></div>
+        <h3>Vegetation health</h3>
+        <p>Vegetation indices such as NDVI can help examine changes in plant greenness.</p>
+        <div class="indicator-placeholder">NDVI · DATA NOT CONNECTED</div>
+      </article>
+      <article class="dashboard-card indicator-card">
+        <div class="card-top"><span class="feature-icon">☂</span><span class="layer-pending">Planned</span></div>
+        <h3>Rainfall patterns</h3>
+        <p>Precipitation datasets can help investigate seasonal rainfall and dry periods.</p>
+        <div class="indicator-placeholder">PRECIPITATION · DATA NOT CONNECTED</div>
+      </article>
+      <article class="dashboard-card indicator-card">
+        <div class="card-top"><span class="feature-icon">◉</span><span class="layer-pending">Planned</span></div>
+        <h3>Drought monitoring</h3>
+        <p>Combining suitable indicators can help identify conditions that warrant investigation.</p>
+        <div class="indicator-placeholder">DROUGHT · DATA NOT CONNECTED</div>
+      </article>
+      <article class="dashboard-card indicator-card">
+        <div class="card-top"><span class="feature-icon">♧</span><span class="layer-pending">Planned</span></div>
+        <h3>Land conditions</h3>
+        <p>Earth observation products can help reveal land-cover and landscape changes.</p>
+        <div class="indicator-placeholder">LAND ANALYSIS · DATA NOT CONNECTED</div>
+      </article>
+    </section>
+
+    <section class="data-note">
+      <span>ⓘ</span>
+      <div><strong>What powers these insights?</strong>
+        <p>Real measurements will require suitable datasets, processing, and validation. This interface currently
+          demonstrates the design only.</p>
+        <a href="earth-data.html" class="mini-link">Open Earth Data Explorer →</a>
+      </div>
+    </section>
+
+    <footer class="app-footer">FIELD SHIFT · AGRICULTURE INTELLIGENCE</footer>
+  </main>
+
+</body>
+
+</html>

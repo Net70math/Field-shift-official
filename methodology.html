@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07110e" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Data &amp; Methodology | Field Shift</title>
+  <style>
+    :root {
+      --bg: #07110e;
+      --panel: #0b1b15;
+      --panel-soft: #0e2119;
+      --border: #1b4030;
+      --text: #f1fff8;
+      --muted: #a8c8b8;
+      --subtle: #739486;
+      --lime: #b7f36b;
+      --mint: #55e3c1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      color: var(--text);
+      background: radial-gradient(ellipse at 82% 0%, rgba(39, 105, 69, .17), transparent 34%), var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .app-main {
+      min-width: 0;
+    }
+
+    .methodology-content {
+      width: min(100%, 1180px);
+      margin: 0 auto;
+    }
+
+    a {
+      color: var(--lime);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      width: min(100%, 1180px);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      color: var(--lime);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    header {
+      margin-bottom: 34px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #d6eee2;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      margin-bottom: 48px;
+    }
+
+    .brand-mark {
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #4b9272;
+      color: var(--mint);
+      border-radius: 50%;
+      font-size: 12px;
+    }
+
+    h1 {
+      margin: 11px 0 12px;
+      font-size: clamp(34px, 5vw, 54px);
+      letter-spacing: -2px;
+      line-height: 1.04;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .source-banner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      margin: 30px 0 20px;
+      padding: 25px 27px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(120deg, #10271b, #0b1b15 70%);
+    }
+
+    .source-banner h2 {
+      margin: 8px 0 8px;
+      font-size: 23px;
+      letter-spacing: -.5px;
+    }
+
+    .source-banner p {
+      margin: 0;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .source-mark {
+      width: 86px;
+      height: 86px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid #3b7755;
+      color: var(--lime);
+      background: #142c1d;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      box-shadow: 0 0 50px #b7f36b0c;
+    }
+
+    .section-title {
+      margin: 35px 0 15px;
+      font-size: 19px;
+      letter-spacing: -.3px;
+    }
+
+    .section-description {
+      margin: -7px 0 17px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+    }
+
+    .data-card,
+    .method-card,
+    .note-card {
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: var(--panel);
+      padding: 20px;
+    }
+
+    .card-icon {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      color: var(--lime);
+      border: 1px solid #315b40;
+      background: #14271a;
+      border-radius: 10px;
+      font-size: 17px;
+      margin-bottom: 17px;
+    }
+
+    .data-card h3,
+    .method-card h3,
+    .note-card h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+    }
+
+    .data-card p,
+    .method-card p,
+    .note-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+    }
+
+    .method-card {
+      display: flex;
+      gap: 15px;
+    }
+
+    .step {
+      flex: 0 0 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #416c4d;
+      border-radius: 50%;
+      color: var(--lime);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .note-card {
+      margin-top: 14px;
+      background: #102319;
+      border-color: #31543a;
+    }
+
+    .note-card h3 {
+      color: var(--lime);
+    }
+
+    .attribution {
+      margin-top: 28px;
+      padding: 23px 25px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #091711;
+    }
+
+    .attribution p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+      margin: 8px 0 0;
+    }
+
+    .source-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-top: 16px;
+      font-size: 12px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 27px;
+      color: #668675;
+      font-size: 10px;
+      letter-spacing: .7px;
+    }
+
+    @media (max-width: 760px) {
+
+      .brand {
+        margin-bottom: 39px;
+      }
+
+      .source-banner {
+        grid-template-columns: 1fr;
+        padding: 21px;
+      }
+
+      .source-mark {
+        width: 62px;
+        height: 62px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        flex-direction: column;
+        line-height: 1.7;
+      }
+
+      h1 {
+        letter-spacing: -1.3px;
+      }
+    }
+  </style>
+</head>
+
+<body class="app-page">
+
+  <!-- Mobile top navigation -->
+  <header class="mobile-topbar">
+    <a class="brand" href="index.html">◎ FIELD SHIFT</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu"
+      aria-controls="appSidebar" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <aside class="sidebar" id="appSidebar">
+    <a class="brand sidebar-brand" href="index.html">◎ FIELD SHIFT</a>
+    <nav data-nav aria-label="Application navigation">
+      <a href="dashboard.html">▦ <span>Dashboard</span></a>
+      <a href="smart-analysis.html">⚛ <span>Smart Analysis</span></a>
+      <a href="agriculture.html">✳ <span>Agriculture</span></a>
+      <a href="explore.html">◎ <span>Explore Map</span></a>
+      <a href="earth-data.html">⌁ <span>Earth Data</span></a>
+      <a href="methodology.html" class="active">↖ <span>Methodology</span></a>
+      <a href="index.html">↖ <span>Landing page</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <span class="status-dot"></span>
+      <span>Field Shift Prototype</span>
+    </div>
+  </aside>
+
+  <script src="js/navigation.js"></script>
+
+  <main class="app-main">
+    <div class="methodology-content">
+      <header>
+        <div class="brand"><span class="brand-mark">✣</span> FIELD SHIFT</div>
+        <div class="eyebrow">Transparency / Data sources</div>
+        <h1>Data &amp; Methodology</h1>
+        <p class="intro">
+          Understand where Field Shift's environmental information comes from, how it is
+          processed, and what it can and cannot tell you about the conditions around a farm.
+        </p>
+      </header>
+
+      <section class="source-banner">
+        <div>
+          <div class="eyebrow">Primary data provider</div>
+          <h2>NASA POWER API</h2>
+          <p>
+            Field Shift uses NASA's Prediction Of Worldwide Energy Resources (POWER)
+            data service as a source of meteorological and solar information. NASA POWER
+            makes globally available, analysis ready environmental data accessible to
+            applications, researchers, and the agricultural community.
+          </p>
+        </div>
+        <div class="source-mark" aria-label="NASA POWER">NASA<br />POWER</div>
+      </section>
+
+      <section>
+        <h2 class="section-title">What kind of data is available?</h2>
+        <p class="section-description">
+          NASA POWER provides a range of solar and meteorological parameters. The exact
+          variables shown in Field Shift depend on the parameters requested by the app.
+        </p>
+        <div class="grid">
+          <article class="data-card">
+            <div class="card-icon">☀</div>
+            <h3>Solar radiation</h3>
+            <p>Solar energy reaching the surface, useful for understanding sunlight conditions and potential evaporation
+              or crop-energy context.</p>
+          </article>
+          <article class="data-card">
+            <div class="card-icon">温</div>
+            <h3>Air temperature</h3>
+            <p>Near-surface air temperature, including available average, minimum, and maximum measures.</p>
+          </article>
+          <article class="data-card">
+            <div class="card-icon">☂</div>
+            <h3>Precipitation</h3>
+            <p>Precipitation estimates that help describe rainfall patterns and support monitoring of wet and dry
+              conditions.</p>
+          </article>
+          <article class="data-card">
+            <div class="card-icon">◌</div>
+            <h3>Humidity</h3>
+            <p>Available moisture-related atmospheric measures, including relative humidity and dew-point information.
+            </p>
+          </article>
+          <article class="data-card">
+            <div class="card-icon">≋</div>
+            <h3>Wind conditions</h3>
+            <p>Wind speed and direction information at supported heights, useful for describing local atmospheric
+              conditions.</p>
+          </article>
+          <article class="data-card">
+            <div class="card-icon">◷</div>
+            <h3>Historical records</h3>
+            <p>Time-series and climatological data help put recent conditions into a longer term context.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">How Field Shift uses the data</h2>
+        <p class="section-description">A simple overview of the intended data workflow.</p>
+        <div class="method-grid">
+          <article class="method-card">
+            <div class="step">01</div>
+            <div>
+              <h3>Choose a farm location</h3>
+              <p>The farmer selects a point on the map or allows the device to share its location. The coordinates
+                identify the area for the data request.</p>
+            </div>
+          </article>
+          <article class="method-card">
+            <div class="step">02</div>
+            <div>
+              <h3>Request environmental data</h3>
+              <p>The application sends the selected coordinates, requested parameters, and time period to the NASA POWER
+                API.</p>
+            </div>
+          </article>
+          <article class="method-card">
+            <div class="step">03</div>
+            <div>
+              <h3>Interpret the returned values</h3>
+              <p>Field Shift organizes the API response and can calculate or classify indicators using documented
+                application rules.</p>
+            </div>
+          </article>
+          <article class="method-card">
+            <div class="step">04</div>
+            <div>
+              <h3>Present useful insights</h3>
+              <p>Environmental information is presented in a clearer format to help farmers understand conditions and
+                consider their next steps.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Understanding the data</h2>
+        <div class="note-card">
+          <h3>Important: environmental data is not a field sensor reading</h3>
+          <p>
+            NASA POWER data is derived from satellite observations, models, and other
+            scientific data products. It represents conditions at the source product's
+            spatial resolution, not necessarily the exact conditions at an individual
+            plant or within a small farm plot. Local terrain, elevation, irrigation,
+            shade, and microclimates can cause conditions on a farm to differ from
+            gridded estimates.
+          </p>
+        </div>
+        <div class="note-card">
+          <h3>Time coverage and update timing</h3>
+          <p>
+            NASA POWER offers hourly, daily, monthly, and climatological products,
+            depending on the service and parameter. NASA's documentation reports that
+            meteorological products are generally available with a latency of around
+            2–3 days, while solar products are generally around 5–7 days. Therefore,
+            these datasets should not automatically be treated as live, minute-by-minute
+            weather observations or as a local weather forecast.
+          </p>
+        </div>
+      </section>
+
+      <section class="attribution">
+        <div class="eyebrow">Data acknowledgement</div>
+        <h2 class="section-title" style="margin: 9px 0 0;">Credit where it is due</h2>
+        <p>
+          Environmental data presented through Field Shift is sourced, where configured,
+          from the NASA Prediction Of Worldwide Energy Resources (POWER) project,
+          supported by NASA's Earth Science research and data services. Field Shift is
+          an independent application and is not affiliated with, endorsed by, or operated
+          by NASA.
+        </p>
+        <div class="source-links">
+          <a href="https://power.larc.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA POWER website ↗</a>
+          <a href="https://power.larc.nasa.gov/docs/" target="_blank" rel="noopener noreferrer">API documentation ↗</a>
+          <a href="https://power.larc.nasa.gov/docs/faqs/data/" target="_blank" rel="noopener noreferrer">Data sources
+            &amp; resolution ↗</a>
+          <a href="https://power.larc.nasa.gov/docs/services/api/temporal/daily/" target="_blank"
+            rel="noopener noreferrer">Daily API details ↗</a>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>FIELD SHIFT · DATA &amp; METHODOLOGY</span>
+        <span>Built for clearer agricultural information.</span>
+      </footer>
+    </div>
+  </main>
+</body>
+
+</html>

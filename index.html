@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07100f">
+  <meta name="description" content="Field Shift uses Earth observation to explore agricultural and environmental change.">
+  <title>Field Shift | Earth Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="landing">
+  <nav class="top-nav">
+    <a class="brand" href="index.html"><span class="brand-icon">F</span> FIELD SHIFT</a>
+    <div class="nav-links">
+      <a href="#mission">Mission</a>
+      <a href="#features">Platform</a>
+      <a href="signin.html" class="button button-outline">Open application ↗</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> EARTH OBSERVATION · AGRICULTURE</div>
+        <h1>Understand<br>Earth. Empower<br><span>agriculture.</span></h1>
+        <p class="hero-description">
+          Explore our planet through satellite imagery and discover how
+          Earth observation can help us understand changing agricultural
+          and environmental conditions.
+        </p>
+        <div class="hero-actions">
+          <a href="signin.html" class="button button-primary">Launch Field Shift <span>↗</span></a>
+          <a href="#mission" class="text-link">Discover the mission ↓</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>01 / EXPLORE</strong><small>Navigate our planet</small></div>
+          <div><strong>02 / ANALYZE</strong><small>Understand locations</small></div>
+          <div><strong>03 / LEARN</strong><small>Explore Earth data</small></div>
+        </div>
+      </div>
+
+      <div class="landing-globe-wrap">
+        <div class="globe-topline">
+          <span><span class="live-dot"></span> INTERACTIVE EARTH</span>
+          <span>3D · GLOBAL VIEW</span>
+        </div>
+        <div id="worldGlobe" aria-label="Interactive 3D Earth globe"></div>
+        <div class="globe-country-card">
+          <div>
+            <span class="eyebrow">SELECTED COUNTRY</span>
+            <h3 id="selectedCountry">Ethiopia</h3>
+            <p id="countryDetails">Click any country on the globe.</p>
+          </div>
+          <span class="country-card-icon">◎</span>
+        </div>
+        <div id="globeStatus" class="globe-status">Loading geographic boundaries…</div>
+      </div>
+    </section>
+
+    <section id="mission" class="mission-section">
+      <div class="eyebrow">OUR MISSION</div>
+      <h2>From satellite observations to <span>meaningful insight.</span></h2>
+      <p class="section-description">
+        Field Shift is a prototype exploring how satellite imagery,
+        geographic information, and environmental datasets can help
+        people understand agricultural conditions, starting with Ethiopia.
+      </p>
+    </section>
+
+    <section id="features" class="feature-grid">
+      <a class="feature-card" href="explore.html">
+        <span class="feature-icon">◎</span>
+        <h3>Explore Map</h3>
+        <p>Navigate satellite imagery, select locations, and inspect coordinates.</p>
+        <span class="mini-link">Open map ↗</span>
+      </a>
+      <a class="feature-card" href="earth-data.html">
+        <span class="feature-icon">⌁</span>
+        <h3>Earth Data Explorer</h3>
+        <p>Explore the planet and prepare geographic areas for future analysis.</p>
+        <span class="mini-link">Explore Earth ↗</span>
+      </a>
+      <a class="feature-card" href="agriculture.html">
+        <span class="feature-icon">✳</span>
+        <h3>Agriculture Intelligence</h3>
+        <p>Discover how vegetation, precipitation, and drought indicators can be studied.</p>
+        <span class="mini-link">View agriculture ↗</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="index.html"><span class="brand-icon">F</span> FIELD SHIFT</a>
+    <span>THE ORGINALS · NASA SPACE APPS PROJECT</span>
+    <span>Earth observation for a smarter agricultural future.</span>
+  </footer>
+
+  <script src="https://unpkg.com/globe.gl"></script>
+  <script src="js/globe.js"></script>
+</body>
+</html>

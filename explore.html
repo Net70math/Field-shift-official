@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Map | Field Shift</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body class="app-page">
+
+  <!-- Mobile top navigation -->
+  <header class="mobile-topbar">
+    <a class="brand" href="index.html">◎ FIELD SHIFT</a>
+
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu"
+      aria-controls="appSidebar" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Overlay closes the sidebar on mobile -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main sidebar -->
+  <aside class="sidebar" id="appSidebar">
+    <a class="brand sidebar-brand" href="index.html">◎ FIELD SHIFT</a>
+
+    <nav data-nav aria-label="Application navigation">
+      <a href="dashboard.html">▦ <span>Dashboard</span></a>
+      <a href="smart-analysis.html">⚛ <span>Smart Analysis</span></a>
+      <a href="agriculture.html">✳ <span>Agriculture</span></a>
+      <a href="explore.html" class="active">◎ <span>Explore Map</span></a>
+      <a href="earth-data.html">⌁ <span>Earth Data</span></a>
+      <a href="methodology.html">↖ <span>Methodology</span></a>
+      <a href="index.html">↖ <span>Landing page</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <span class="status-dot"></span>
+      <span>Field Shift Prototype</span>
+    </div>
+  </aside>
+
+  <script src="js/navigation.js"></script>
+
+  <main class="app-main">
+    <header class="app-header">
+      <div>
+        <div class="eyebrow">WORKSPACE / GEOSPATIAL</div>
+        <h1>Explore Map</h1>
+        <p class="muted">Navigate satellite imagery and select a location.</p>
+      </div>
+      <span class="status-pill">Satellite basemap</span>
+    </header>
+
+    <section class="map-toolbar">
+      <div><strong>Explore the landscape</strong>
+        <p>Search for a country or click anywhere on the map.</p>
+      </div>
+      <div class="toolbar-actions">
+        <input id="countrySearch" class="search-input" type="search" placeholder="Find a country..."
+          aria-label="Search country">
+        <button class="button button-outline" id="searchCountry">Search</button>
+        <button class="button button-primary" id="locateMe">⌖ My location</button>
+      </div>
+    </section>
+
+    <div class="map-layout">
+      <section class="map-frame">
+        <div id="fieldMap"></div>
+      </section>
+
+      <aside class="location-panel">
+        <div class="eyebrow">LOCATION INSPECTOR</div>
+        <div class="location-pin">⌖</div>
+        <h2 id="placeName">Ethiopia</h2>
+        <p class="muted">Selected map position</p>
+        <div class="coordinate-row"><span>LATITUDE</span><strong id="latitude">9.0300°</strong></div>
+        <div class="coordinate-row"><span>LONGITUDE</span><strong id="longitude">38.7400°</strong></div>
+        <button id="copyCoords" class="button button-primary full-width">Copy coordinates</button>
+        <div class="data-note compact"><span>ⓘ</span>
+          <div><strong>Ready for analysis</strong>
+            <p>Selected coordinates can later be sent to a real Earth-data service.</p>
+          </div>
+        </div>
+        <div class="result-card"
+          style="border: 1px solid #b9f66a; padding: 15px; border-radius: 8px; margin-top: 15px;">
+          <h4 style="color: #b9f66a; margin-bottom: 10px;">🛰️ Live NASA Satellite Data</h4>
+          <p style="color: #888; font-size: 0.9rem;" id="nasa-status">Click anywhere on the Explore Map to fetch live
+            climate data...</p>
+          <div style="display: flex; gap: 20px; margin-top: 10px;">
+            <div>
+              <span style="font-size: 0.8rem; color: #888;">7-DAY RAINFALL</span>
+              <strong id="nasa-precip" style="display: block; font-size: 1.2rem; color: white;">-- mm</strong>
+            </div>
+            <div>
+              <span style="font-size: 0.8rem; color: #888;">AVG TEMPERATURE</span>
+              <strong id="nasa-temp" style="display: block; font-size: 1.2rem; color: white;">-- °C</strong>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    </aside>
+
+    </div>
+    <footer class="app-footer">Imagery © Esri and its imagery contributors. Attribution is shown on the map.</footer>
+  </main>
+  <script src="js/navigation.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/map.js"></script>
+</body>
+
+</html>
