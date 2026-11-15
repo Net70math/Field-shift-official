@@ -69,3 +69,6 @@ All project modules were merged and deployed through a centralized repository wo
 ## 📄 Data Transparency & Attribution
 * **Satellite Basemaps:** Imagery © Esri, Maxar, Earthstar Geographics, and the GIS User Community. Street data © OpenStreetMap contributors.
 * **Climate Telemetry:** Meteorological data obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program.
+### Super Intelligence (SI) Acknowledgment
+* **Code & Data:** The Fshift AI agronomy engine is powered by the Google Gemini API to synthesize NASA Earth observation data into conversational advice. 
+* **Writing & Editing:** Google Gemini was utilized to assist in structuring, formatting, and editing the final project submission text and presentation slide deck.
